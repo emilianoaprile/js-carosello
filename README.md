@@ -6,7 +6,7 @@ Questo carosello di immagini è stato implementato utilizzando HTML, CSS e JavaS
 ## Struttura dei File
 - `index.html`: File HTML contenente la struttura della pagina web.
 - `style.css`: File CSS per lo stile della pagina web.
-- `script.js`: File JavaScript che implementa la funzionalità del carosello di immagini.
+- `app.js`: File JavaScript che implementa la funzionalità del carosello di immagini.
 - `img/`: Directory contenente le immagini utilizzate nel carosello.
 
 ## Funzionamento
