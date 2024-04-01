@@ -13,25 +13,10 @@ const imagesDxElement = document.querySelector('.images_list')
 const btnDxElement = document.querySelector('.btn_right')
 const btnSxElement = document.querySelector('.btn_left')
 
+console.log(imagesElement, imagesDxElement)
+
 // ciclo for per aggiungere dinamicamente images
-for (let i = 0; i < images.length; i++) {
-    // assegno a current image l'elemento corrispondente all'inidce dell'array
-    const currentImage = images[i]
-    // creo elemeno img nel DOM
-    const srcElement = document.createElement('img')
-    const thumbElement = document.createElement('img')
-    // appendo img al div class="images"
-    imagesElement.append(srcElement)
-    imagesDxElement.append(thumbElement)
-    // assegno all'elemento src (che corrispondere al contenuto dell'elemento corrente)
-    srcElement.src = currentImage
-    thumbElement.src = currentImage
-    // add classe image per recuperare gli elementi dal DOM tramite la classe
-    srcElement.classList.add('image')
-    thumbElement.classList.add('thumb_image')
-
-
-}
+addImagesDinamically(images)
 
 // recupero le images tramite la classe
 const imageDOMElements = document.getElementsByClassName('image')
@@ -43,7 +28,42 @@ firstThumbDOMElement.classList.add('border_active')
 // console.dir(imageDOMElements)
 let index = 0
 
+// click next
 btnDxElement.addEventListener('click', function(){
+    getNextImage()
+})
+
+// click previous
+btnSxElement.addEventListener('click', function(){
+    getPrevImage()
+})
+
+/* ------------------------------------------------------------------ */
+
+// funzioni
+function addImagesDinamically(images) {
+
+    for (let i = 0; i < images.length; i++) {
+        // assegno a current image l'elemento corrispondente all'inidce dell'array
+        const currentImage = images[i]
+        // creo elemeno img nel DOM
+        const srcElement = document.createElement('img')
+        const thumbElement = document.createElement('img')
+        // appendo img al div class="images"
+        imagesElement.append(srcElement)
+        imagesDxElement.append(thumbElement)
+        // assegno all'elemento src (che corrispondere al contenuto dell'elemento corrente)
+        srcElement.src = currentImage
+        thumbElement.src = currentImage
+        // add classe image per recuperare gli elementi dal DOM tramite la classe
+        srcElement.classList.add('image')
+        thumbElement.classList.add('thumb_image')
+    }   
+
+}
+
+
+function getNextImage() {
 
     imageDOMElements[index].classList.remove('active')
     thumbDOMElements[index].classList.remove('border_active')
@@ -54,10 +74,9 @@ btnDxElement.addEventListener('click', function(){
     imageDOMElements[index].classList.add('active')
     thumbDOMElements[index].classList.add('border_active')
 
+}
 
-})
-
-btnSxElement.addEventListener('click', function(){
+function getPrevImage() {
 
     imageDOMElements[index].classList.remove('active')
     thumbDOMElements[index].classList.remove('border_active')
@@ -69,9 +88,7 @@ btnSxElement.addEventListener('click', function(){
     imageDOMElements[index].classList.add('active')
     thumbDOMElements[index].classList.add('border_active')
 
-
-})
-
+}
 
 
 
