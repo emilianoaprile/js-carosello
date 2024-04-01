@@ -16,7 +16,7 @@ const btnSxElement = document.querySelector('.btn_left')
 console.log(imagesElement, imagesDxElement)
 
 // ciclo for per aggiungere dinamicamente images
-addImagesDinamically(images)
+addImagesDynamically(images)
 
 // recupero le images tramite la classe
 const imageDOMElements = document.getElementsByClassName('image')
@@ -24,7 +24,7 @@ const thumbDOMElements = document.getElementsByClassName('thumb_image')
 const firstImgDOMElement = imageDOMElements[0]
 const firstThumbDOMElement = thumbDOMElements[0]
 firstImgDOMElement.classList.add('active')
-firstThumbDOMElement.classList.add('border_active') 
+firstThumbDOMElement.classList.add('thumb_active') 
 // console.dir(imageDOMElements)
 let index = 0
 
@@ -41,7 +41,7 @@ btnSxElement.addEventListener('click', function(){
 /* ------------------------------------------------------------------ */
 
 // funzioni
-function addImagesDinamically(images) {
+function addImagesDynamically(images) {
 
     for (let i = 0; i < images.length; i++) {
         // assegno a current image l'elemento corrispondente all'inidce dell'array
@@ -66,27 +66,27 @@ function addImagesDinamically(images) {
 function getNextImage() {
 
     imageDOMElements[index].classList.remove('active')
-    thumbDOMElements[index].classList.remove('border_active')
+    thumbDOMElements[index].classList.remove('thumb_active')
     index++
     if(index >= imageDOMElements.length) {
         index = 0
     }
     imageDOMElements[index].classList.add('active')
-    thumbDOMElements[index].classList.add('border_active')
+    thumbDOMElements[index].classList.add('thumb_active')
 
 }
 
 function getPrevImage() {
 
     imageDOMElements[index].classList.remove('active')
-    thumbDOMElements[index].classList.remove('border_active')
+    thumbDOMElements[index].classList.remove('thumb_active')
 
     if(index === 0) {
         index = imageDOMElements.length
     }
     index--
     imageDOMElements[index].classList.add('active')
-    thumbDOMElements[index].classList.add('border_active')
+    thumbDOMElements[index].classList.add('thumb_active')
 
 }
 
