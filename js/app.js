@@ -24,24 +24,22 @@ const thumbDOMElements = document.getElementsByClassName('thumb_image')
 const firstImgDOMElement = imageDOMElements[0]
 const firstThumbDOMElement = thumbDOMElements[0]
 firstImgDOMElement.classList.add('active')
-firstThumbDOMElement.classList.add('thumb_active') 
-// console.dir(imageDOMElements)
-let index = 0
+firstThumbDOMElement.classList.add('thumb_active')
 
 // click next
-btnDxElement.addEventListener('click', function(){
+btnDxElement.addEventListener('click', function () {
     getNextImage()
 })
 
 // click previous
-btnSxElement.addEventListener('click', function(){
+btnSxElement.addEventListener('click', function () {
     getPrevImage()
 })
 
 /* ------------------------------------------------------------------ */
 
 // funzioni
-function addImagesDynamically(images) {
+function addImagesDynamically() {
 
     for (let i = 0; i < images.length; i++) {
         // assegno a current image l'elemento corrispondente all'inidce dell'array
@@ -58,17 +56,18 @@ function addImagesDynamically(images) {
         // add classe image per recuperare gli elementi dal DOM tramite la classe
         srcElement.classList.add('image')
         thumbElement.classList.add('thumb_image')
-    }   
+    }
 
 }
 
-
+// variabile di stato che imposta index = 0 per fare vedere la prima immagine dell'array imageDOMElements
+let index = 0
 function getNextImage() {
 
     imageDOMElements[index].classList.remove('active')
     thumbDOMElements[index].classList.remove('thumb_active')
     index++
-    if(index >= imageDOMElements.length) {
+    if (index >= imageDOMElements.length) {
         index = 0
     }
     imageDOMElements[index].classList.add('active')
@@ -81,7 +80,7 @@ function getPrevImage() {
     imageDOMElements[index].classList.remove('active')
     thumbDOMElements[index].classList.remove('thumb_active')
 
-    if(index === 0) {
+    if (index === 0) {
         index = imageDOMElements.length
     }
     index--
