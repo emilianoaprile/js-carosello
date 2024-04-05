@@ -13,10 +13,8 @@ const imagesDxElement = document.querySelector('.images_list')
 const btnDxElement = document.querySelector('.btn_right')
 const btnSxElement = document.querySelector('.btn_left')
 
-console.log(imagesElement, imagesDxElement)
-
 // ciclo for per aggiungere dinamicamente images
-addImagesDynamically(images)
+addImagesDynamically()
 
 // recupero le images tramite la classe
 const imageDOMElements = document.getElementsByClassName('image')
