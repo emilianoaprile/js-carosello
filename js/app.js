@@ -7,16 +7,16 @@ const images = [
     'img/img-carosello-5.jpg'
 ]
 
-// recupero div class="images"
+// recupero elementi del DOM"
 const imagesElement = document.querySelector('.images')
-const imagesDxElement = document.querySelector('.images_list')
+const imagesThumbElement = document.querySelector('.thumb_list')
 const btnDxElement = document.querySelector('.btn_right')
 const btnSxElement = document.querySelector('.btn_left')
 
-// ciclo for per aggiungere dinamicamente images
+// ciclo for per aggiungere dinamicamente images e thumbs
 addImagesDynamically()
 
-// recupero le images tramite la classe
+// recupero le images, le thumbs tramite la classe e dichiaro che la prima immagine da far vedere è l'elemento con indice = 0
 const imageDOMElements = document.getElementsByClassName('image')
 const thumbDOMElements = document.getElementsByClassName('thumb_image')
 const firstImgDOMElement = imageDOMElements[0]
@@ -25,14 +25,10 @@ firstImgDOMElement.classList.add('active')
 firstThumbDOMElement.classList.add('thumb_active')
 
 // click next
-btnDxElement.addEventListener('click', function () {
-    getNextImage()
-})
+btnDxElement.addEventListener('click', getNextImage)
 
 // click previous
-btnSxElement.addEventListener('click', function () {
-    getPrevImage()
-})
+btnSxElement.addEventListener('click', getPrevImage)
 
 /* ------------------------------------------------------------------ */
 
@@ -47,7 +43,7 @@ function addImagesDynamically() {
         const thumbElement = document.createElement('img')
         // appendo img al div class="images"
         imagesElement.append(srcElement)
-        imagesDxElement.append(thumbElement)
+        imagesThumbElement.append(thumbElement)
         // assegno all'elemento src (che corrispondere al contenuto dell'elemento corrente)
         srcElement.src = currentImage
         thumbElement.src = currentImage
@@ -86,6 +82,3 @@ function getPrevImage() {
     thumbDOMElements[index].classList.add('thumb_active')
 
 }
-
-
-

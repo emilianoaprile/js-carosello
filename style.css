@@ -19,7 +19,7 @@ img {
     display: none;
 }
 
-.images_list > img {
+.thumb_list > img {
     display: flex;
     flex-direction: column;
     height: 20%;
@@ -37,7 +37,7 @@ img {
     height: 100%;
 }
 
-.images_list {
+.thumb_list {
     flex-basis: 30%;
     height: 100%;
     /* border: 2px solid white; */
